@@ -97,6 +97,12 @@ class kd3005pInstrument:
 	def readAmp(self):
 		return self.serWriteAndRecieve("IOUT1?")
 	
+	def setBeep(self, state):
+		if(state == True):
+			self.serWriteAndRecieve("BEEP1")
+		elif(state == False):
+			self.serWriteAndRecieve("BEEP0")
+
 	def setOut(self, state):
 		if(state == True):
 			self.serWriteAndRecieve("OUT1")
