@@ -61,7 +61,8 @@ class kd3005pInstrument:
 			self.isConnected = False
 	
 	def close(self):
-		self.psu_com.close()
+		if self.psu_com is not None:
+			self.psu_com.close()
 	
 	def serWriteAndRecieve(self, data, delay=0.05): # data er ein stre
 		self.psu_com.write(data.encode())
